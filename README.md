@@ -26,4 +26,4 @@
    ```
    Donde:
    - `-n` corresponde al nombre.
-   - `-e` corresponde
+   - `-e` corresponde a la edad.
