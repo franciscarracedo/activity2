@@ -45,6 +45,6 @@ Posteriormente, modifiqué el proyecto agregando las siguientes librerías:
 - **[commons-cli](https://commons.apache.org/proper/commons-cli/)**: Para manejar los argumentos de la línea de comandos.
 - **[log4j](http://logging.apache.org/log4j/2.x/)**: Para registrar logs en la aplicación.
 
-Además, solicité a una inteligencia artificial ejemplos de código para las librerías antes mencionadas. La LIM (Language Integrated Model) utilizada fue la que proporciona **IntelliJ IDEA Ultimate**.
+Además, solicité a una inteligencia artificial ejemplos de código para las librerías antes mencionadas. La LIM utilizada fue la que proporciona **IntelliJ IDEA Ultimate**.
 
 ---
