@@ -1,11 +1,29 @@
-1 - Clonarse el aplicativo
-2 - En consola ejecutar el comando mvn clean package
-3 - Identificar en la carpeta target el jar actividad2-0.0.1-SNAPSHOT.jar
-4 - Interactuar de esta manera por consola "java -jar target/actividad2-0.0.1-SNAPSHOT.jar -n Juan -e 25"
-    (-n corresponde al nombre y -e a la edad). En consola debería aparecer:
-    "Hola, Juan. Tienes 25 años."
+# Actividad 2
 
+## Pasos para ejecutar el aplicativo
 
-El aplicativo fue creado en principio por https://start.spring.io/. Lo modifiqué agregando las librerías commons-cli y log4j.
-Luego le pedi a una lim que me genere ejemplos de codigo de las librerías solicitadas.
-La lim utilizada fue la que proporciona intelliJ Ultimate.
+1. **Clonar el repositorio del aplicativo**
+   ```
+   git clone <url-del-repositorio>
+   ```
+
+2. **Compilar y empaquetar el proyecto**
+   En la consola, ejecuta el siguiente comando:
+   ```
+   mvn clean package
+   ```
+
+3. **Identificar el archivo JAR**
+   Luego de empaquetar, encontrarás el archivo en la carpeta `target` con el nombre:
+   ```
+   actividad2-0.0.1-SNAPSHOT.jar
+   ```
+
+4. **Ejecutar el aplicativo desde la consola**
+   Usa el siguiente comando para interactuar con el aplicativo:
+   ```
+   java -jar target/actividad2-0.0.1-SNAPSHOT.jar -n Juan -e 25
+   ```
+   Donde:
+   - `-n` corresponde al nombre.
+   - `-e` corresponde
