@@ -7,46 +7,52 @@ import org.apache.commons.cli.*;
 
 @SpringBootApplication
 public class Actividad2Application {
-	private static final Logger logger = LogManager.getLogger(Actividad2Application.class);
+    private static final Logger logger = LogManager.getLogger(Actividad2Application.class);
 
     public static void main(String[] args) {
-		Options options = new Options();
+        CommandLine cmd = parseArguments(args);
 
-		options.addOption("h", "help", false, "Muestra esta ayuda");
-		options.addOption("n", "name", true, "Especifica el nombre de la persona"); // Opción -n
-		options.addOption("e", "edad", true, "Especifica la edad de la persona");   // Opción -e
+        if (cmd == null || cmd.hasOption("h")) {
+            showHelp();
+            return;
+        }
 
-		CommandLineParser parser = new DefaultParser();
-		HelpFormatter formatter = new HelpFormatter();
+        if (!cmd.hasOption("n") || !cmd.hasOption("e")) {
+            logger.warn("Faltan parámetros obligatorios: nombre (-n) y edad (-e).");
+            showHelp();
+            return;
+        }
 
-		try {
-			CommandLine cmd = parser.parse(options, args);
+        String nombre = cmd.getOptionValue("n");
+        String edad = cmd.getOptionValue("e");
 
-			if (cmd.hasOption("h")) {
-				formatter.printHelp("Activiad2", options);
-				return;
-			}
+        logger.info("Nombre: {}, Edad: {}", nombre, edad);
+        System.out.println("Hola, " + nombre + ". Tienes " + edad + " años.");
+    }
 
-			if (!cmd.hasOption("n")) {
-				logger.warn("ERROR: Falta el nombre. Usa -n o --name para especificarlo.");
-				formatter.printHelp("Activiad2", options);
-				return;
-			}
+    public static CommandLine parseArguments(String[] args) {
+        Options options = buildOptions();
+        CommandLineParser parser = new DefaultParser();
 
-			if (!cmd.hasOption("e")) {
-				logger.warn("ERROR: Falta la edad. Usa -e o --edad para especificarla.");
-				formatter.printHelp("Activiad2", options);
-				return;
-			}
+        try {
+            return parser.parse(options, args);
+        } catch (ParseException e) {
+            logger.error("Error al analizar los argumentos: {}", e.getMessage());
+            showHelp();
+            return null;
+        }
+    }
 
-			String nombre = cmd.getOptionValue("n");
-			String edad = cmd.getOptionValue("e");
+    private static Options buildOptions() {
+        Options options = new Options();
+        options.addOption("h", "help", false, "Muestra esta ayuda");
+        options.addOption("n", "name", true, "Especifica el nombre de la persona");
+        options.addOption("e", "edad", true, "Especifica la edad de la persona");
+        return options;
+    }
 
-			System.out.println("Hola, " + nombre + ". Tienes " + edad + " años.");
-
-		} catch (ParseException e) {
-			System.out.println("Error al analizar los argumentos: " + e.getMessage());
-			formatter.printHelp("Activiad2", options);
-		}
-	}
+    private static void showHelp() {
+        HelpFormatter formatter = new HelpFormatter();
+        formatter.printHelp("Actividad2", buildOptions());
+    }
 }
