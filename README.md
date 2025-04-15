@@ -1,20 +1,20 @@
 🧪 Instrucciones para ejecutar la aplicación
 
-    Cloná este repositorio:
+Cloná este repositorio:
 
-git clone https://github.com/franciscarracedo/activity2.git
+    git clone https://github.com/franciscarracedo/activity2.git    
 
 Ingresá al directorio del proyecto y compilá con Maven:
 
-mvn clean package
+    mvn clean package
 
 Localizá el archivo .jar generado en la carpeta target. El nombre por defecto es:
 
-actividad2-0.0.1-SNAPSHOT.jar
+    actividad2-0.0.1-SNAPSHOT.jar
 
 Ejecutá la aplicación desde consola con el siguiente comando:
 
-java -jar target/actividad2-0.0.1-SNAPSHOT.jar -n Juan -e 25
+    java -jar target/actividad2-0.0.1-SNAPSHOT.jar -n Juan -e 25
 
     -n corresponde al nombre
 
