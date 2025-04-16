@@ -1,3 +1,5 @@
+Alumno: Francisco Carracedo
+
 🧪 Instrucciones para ejecutar la aplicación
 
 Cloná este repositorio:
